@@ -1,5 +1,22 @@
 # @livekit/agents-plugin-krisp
 
+## 1.6.1
+
+### Patch Changes
+
+- Fix Krisp-processed audio being invisible to the rest of the pipeline - [#2130](https://github.com/livekit/agents-js/pull/2130) ([@toubatbrian](https://github.com/toubatbrian))
+
+  The LiveKit Cloud backend is reached through `createRequire`, which resolves the internal
+  package's `require` condition and so loads the CJS build of `@livekit/rtc-node` next to the
+  ESM one the framework uses. Frames returned by that backend were instances of the CJS copy's
+  `AudioFrame`, so every `instanceof AudioFrame` downstream failed. Adaptive interruption saw
+  zero audio and classified every barge-in as a backchannel, making it impossible to interrupt
+  an agent that had noise cancellation enabled. Frames are now adopted into the local binding
+  before leaving the filter, sharing their samples rather than copying them.
+
+- Updated dependencies [[`5010952`](https://github.com/livekit/agents-js/commit/5010952de1bae7b66c72981966f79f450dc8fc8c), [`67620fb`](https://github.com/livekit/agents-js/commit/67620fb963310fb26cef0f2d862023c705fd93f0), [`d4edb58`](https://github.com/livekit/agents-js/commit/d4edb58c1f7dc1636f516ef7d379da3a473d97b4)]:
+  - @livekit/agents@1.6.1
+
 ## 1.6.0
 
 ### Patch Changes

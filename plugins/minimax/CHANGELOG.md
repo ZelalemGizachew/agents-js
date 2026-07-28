@@ -1,5 +1,12 @@
 # @livekit/agents-plugin-minimax
 
+## 1.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`5010952`](https://github.com/livekit/agents-js/commit/5010952de1bae7b66c72981966f79f450dc8fc8c), [`67620fb`](https://github.com/livekit/agents-js/commit/67620fb963310fb26cef0f2d862023c705fd93f0), [`d4edb58`](https://github.com/livekit/agents-js/commit/d4edb58c1f7dc1636f516ef7d379da3a473d97b4)]:
+  - @livekit/agents@1.6.1
+
 ## 1.6.0
 
 ### Patch Changes
